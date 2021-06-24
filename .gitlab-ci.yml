@@ -18,6 +18,6 @@ validate:
 bump-tag:
   before_script:
     - apk add git
-    - git tag | cat
+    - git tag -l | xargs git tag -d
     - git fetch origin 'refs/tags/*:refs/tags/*'
   extends: .bump_minor_tag
