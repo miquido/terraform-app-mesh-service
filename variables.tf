@@ -53,6 +53,7 @@ variable "app_port" {
 variable "app_health_check_path" {
   type        = string
   description = "App health check port"
+  default     = null
 }
 
 variable "cloud_map_namespace_name" {

@@ -61,14 +61,17 @@ resource "aws_appmesh_virtual_node" "service" {
         protocol = "http"
       }
 
-      health_check {
-        protocol            = "http"
-        port                = var.app_port
-        path                = var.app_health_check_path
-        healthy_threshold   = 2
-        unhealthy_threshold = 2
-        timeout_millis      = 2000
-        interval_millis     = 5000
+      dynamic "health_check" {
+        for_each = var.app_health_check_path != null ? [var.app_health_check_path] : []
+        content {
+          protocol            = "http"
+          port                = var.app_port
+          path                = var.app_health_check_path
+          healthy_threshold   = 2
+          unhealthy_threshold = 2
+          timeout_millis      = 2000
+          interval_millis     = 5000
+        }
       }
 
       outlier_detection {
