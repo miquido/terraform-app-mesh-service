@@ -17,5 +17,5 @@ validate:
 
 bump-tag:
   before_script:
-    - git fetch origin 'refs/tags/*:refs/tags/*
+    - git fetch origin 'refs/tags/*:refs/tags/*'
   extends: .bump_minor_tag
