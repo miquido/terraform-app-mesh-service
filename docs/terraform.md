@@ -28,7 +28,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_app_health_check_path"></a> [app\_health\_check\_path](#input\_app\_health\_check\_path) | App health check port | `string` | n/a | yes |
+| <a name="input_app_health_check_path"></a> [app\_health\_check\_path](#input\_app\_health\_check\_path) | App health check port | `string` | `null` | no |
 | <a name="input_app_port"></a> [app\_port](#input\_app\_port) | Appmesh port | `string` | n/a | yes |
 | <a name="input_appmesh_cloud_map_dns_ttl"></a> [appmesh\_cloud\_map\_dns\_ttl](#input\_appmesh\_cloud\_map\_dns\_ttl) | cloud map dns ttl | `number` | `60` | no |
 | <a name="input_appmesh_domain"></a> [appmesh\_domain](#input\_appmesh\_domain) | Appmesh domain | `string` | n/a | yes |
