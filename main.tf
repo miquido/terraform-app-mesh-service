@@ -58,7 +58,7 @@ resource "aws_appmesh_virtual_node" "service" {
     listener {
       port_mapping {
         port     = var.app_port
-        protocol = "http"
+        protocol = var.app_protocol
       }
 
       dynamic "health_check" {

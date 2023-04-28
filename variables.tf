@@ -50,6 +50,12 @@ variable "app_port" {
   description = "Appmesh port"
 }
 
+variable "app_protocol" {
+  type        = string
+  description = "Appmesh protocol"
+  default     = "http"
+}
+
 variable "app_health_check_path" {
   type        = string
   description = "App health check port"
