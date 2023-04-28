@@ -88,14 +88,26 @@ resource "aws_appmesh_virtual_node" "service" {
       }
 
       timeout {
-        http {
-          idle {
-            unit  = "s"
-            value = 90
+        dynamic "http" {
+          for_each = var.app_protocol == "http" ? [1] : []
+          content {
+            idle {
+              unit  = "s"
+              value = 90
+            }
+            per_request {
+              unit  = "s"
+              value = 60
+            }
           }
-          per_request {
-            unit  = "s"
-            value = 60
+        }
+        dynamic "tcp" {
+          for_each = var.app_protocol == "tcp" ? [1] : []
+          content {
+            idle {
+              unit  = "s"
+              value = 90
+            }
           }
         }
       }
